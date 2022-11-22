@@ -7,4 +7,8 @@ class StudentsController < ApplicationController
     grades = Student.all.sort_by{ |k| k.grade}
     render json: "#{grades.reverse.to_json}"
   end
+  def highest_grade
+    grades = Student.all.sort_by { |k| k.grade }
+    render json: "#{grades.reverse.first.to_json()}"
+  end
 end
